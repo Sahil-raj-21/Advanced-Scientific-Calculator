@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function for factorial
+long long factorial(int n) {
+    if (n == 0 || n == 1)
+        return 1;
+    long long result = 1;
+    for (int i = 2; i <= n; i++)
+        result *= i;
+    return result;
+}
+
+int main() {
+    int choice;
+    double a, b;
+
+    do {
+        printf("\n========= SCIENTIFIC CALCULATOR =========\n");
+        printf("1. Addition\n");
+        printf("2. Subtraction\n");
+        printf("3. Multiplication\n");
+        printf("4. Division\n");
+        printf("5. Modulus\n");
+        printf("6. Power (a^b)\n");
+        printf("7. Square Root\n");
+        printf("8. Log (base e)\n");
+        printf("9. Exponential (e^x)\n");
+        printf("10. Sine\n");
+        printf("11. Cosine\n");
+        printf("12. Tangent\n");
+        printf("13. Factorial\n");
+        printf("14. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+
+            case 1:
+                printf("Enter two numbers: ");
+                scanf("%lf %lf", &a, &b);
+                printf("Result = %.4lf\n", a + b);
+                break;
+
+            case 2:
+                printf("Enter two numbers: ");
+                scanf("%lf %lf", &a, &b);
+                printf("Result = %.4lf\n", a - b);
+                break;
+
+            case 3:
+                printf("Enter two numbers: ");
+                scanf("%lf %lf", &a, &b);
+                printf("Result = %.4lf\n", a * b);
+                break;
+
+            case 4:
+                printf("Enter two numbers: ");
+                scanf("%lf %lf", &a, &b);
+                if (b != 0)
+                    printf("Result = %.4lf\n", a / b);
+                else
+                    printf("Error! Division by zero.\n");
+                break;
+
+            case 5:
+                printf("Enter two integers: ");
+                scanf("%lf %lf", &a, &b);
+                printf("Result = %d\n", (int)a % (int)b);
+                break;
+
+            case 6:
+                printf("Enter base and exponent: ");
+                scanf("%lf %lf", &a, &b);
+                printf("Result = %.4lf\n", pow(a, b));
+                break;
+
+            case 7:
+                printf("Enter a number: ");
+                scanf("%lf", &a);
+                if (a >= 0)
+                    printf("Square Root = %.4lf\n", sqrt(a));
+                else
+                    printf("Error! Negative number.\n");
+                break;
+
+            case 8:
+                printf("Enter a number: ");
+                scanf("%lf", &a);
+                if (a > 0)
+                    printf("Log = %.4lf\n", log(a));
+                else
+                    printf("Error! Log undefined.\n");
+                break;
+
+            case 9:
+                printf("Enter a number: ");
+                scanf("%lf", &a);
+                printf("e^x = %.4lf\n", exp(a));
+                break;
+
+            case 10:
+                printf("Enter angle in degrees: ");
+                scanf("%lf", &a);
+                printf("sin = %.4lf\n", sin(a * M_PI / 180));
+                break;
+
+            case 11:
+                printf("Enter angle in degrees: ");
+                scanf("%lf", &a);
+                printf("cos = %.4lf\n", cos(a * M_PI / 180));
+                break;
+
+            case 12:
+                printf("Enter angle in degrees: ");
+                scanf("%lf", &a);
+                printf("tan = %.4lf\n", tan(a * M_PI / 180));
+                break;
+
+            case 13:
+                printf("Enter an integer: ");
+                scanf("%lf", &a);
+                if (a >= 0)
+                    printf("Factorial = %lld\n", factorial((int)a));
+                else
+                    printf("Error! Factorial undefined.\n");
+                break;
+
+            case 14:
+                printf("Exiting Scientific Calculator...\n");
+                break;
+
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+
+    } while (choice != 14);
+
+    return 0;
+}
